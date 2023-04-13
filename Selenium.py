@@ -11,7 +11,7 @@
 #         print(f'{actual_result} не равно {expected_result}')
 #         print("Ошибка!")
     
-# driver = webdriver.Firefox()
+# driver = webdriver.Chrome()
 # driver.get("https://the-internet.herokuapp.com/login")
 # username_box = driver.find_element(by=By.NAME, value="username")
 # username_box.clear()
@@ -307,7 +307,7 @@
 #         return super().tearDown()
     
 #     def test_success_login(self):
-#         driver = webdriver.Firefox()
+#         driver = webdriver.Chrome()
 #         driver.get("https://the-internet.herokuapp.com/login")
 #         login_input = driver.find_element(By.XPATH, '//*[@id="username"]')
 #         password_input = driver.find_element(By.XPATH, '//*[@id="password"]')
@@ -320,7 +320,7 @@
 #         driver.quit()
         
 #     def test_fail_login(self):
-#         driver = webdriver.Firefox()
+#         driver = webdriver.Chrome()
 #         driver.get("https://the-internet.herokuapp.com/login")
 #         login_input = driver.find_element(By.XPATH, '//*[@id="username"]')
 #         password_input = driver.find_element(By.XPATH, '//*[@id="password"]')
@@ -334,7 +334,7 @@
 #         driver.quit()
         
 #     def test_fail_password(self):
-#         driver = webdriver.Firefox()
+#         driver = webdriver.Chrome()
 #         driver.get("https://the-internet.herokuapp.com/login")
 #         login_input = driver.find_element(By.XPATH, '//*[@id="username"]')
 #         password_input = driver.find_element(By.XPATH, '//*[@id="password"]')
@@ -416,32 +416,35 @@
 
 #==============================================================================================
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from time import sleep
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.action_chains import ActionChains
-import unittest
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from time import sleep
+# from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.support.select import Select
+# from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.support import expected_conditions
+# from selenium.webdriver.common.action_chains import ActionChains
+# import unittest
 
 
-class DynamicLoadedElements(unittest.TestCase):
+# class DynamicLoadedElements(unittest.TestCase):
     
-    url = 'https://the-internet.herokuapp.com/dynamic_loading/1'
+#     url = 'https://the-internet.herokuapp.com/dynamic_loading/1'
     
-    def test_dynamic_loaded(self):
-        driver = webdriver.Firefox()
-        wait = WebDriverWait(driver, 10)
-        driver.get(self.url)
-        driver.find_element(By.CSS_SELECTOR, '#start > button:nth-child(1)').click()
-        wait.until(expected_conditions.visibility_of_element_located(By.CSS_SELECTOR, '#finish > h4:nth-child(1)'))
+#     def test_dynamic_loaded(self):
+#         driver = webdriver.Chrome()
+#         wait = WebDriverWait(driver, 10)
+#         driver.get(self.url)
+#         driver.find_element(By.CSS_SELECTOR, '#start > button:nth-child(1)').click()
+#         wait.until(expected_conditions.visibility_of_element_located(By.CSS_SELECTOR, '#finish > h4:nth-child(1)'))
         
-        finish_text = (wait.until(expected_conditions.visibility_of_element_located(By.CSS_SELECTOR, '#finish > h4:nth-child(1)'))).text
+#         finish_text = (wait.until(expected_conditions.visibility_of_element_located(By.CSS_SELECTOR, '#finish > h4:nth-child(1)'))).text
         
-        self.assertEqual(finish_text, 'Hello World!')
-        driver.quit()  
+#         self.assertEqual(finish_text, 'Hello World!')
+#         # driver.quit()  
         
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+# if __name__ == '__main__':
+#     unittest.main(verbosity=2)
+
+#==========================================================================================================================
+
