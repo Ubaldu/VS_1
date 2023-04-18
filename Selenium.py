@@ -57,10 +57,10 @@
 
 # from selenium import webdriver
 # from selenium.webdriver.common.by import By
-# # from time import sleep
+# from time import sleep
 # from selenium.webdriver.common.keys import Keys
 
-# driver = webdriver.Firefox()
+# driver = webdriver.Chrome()
 # driver.get("https://the-internet.herokuapp.com/checkboxes")
 
 # checkbox1 = driver.find_element(by=By.CSS_SELECTOR, value='#checkboxes > input:nth-child(1)')
@@ -71,6 +71,8 @@
 
 # assert checkbox1.get_attribute('checked') == 'true'
 # assert checkbox2.get_attribute('checked') == None
+
+# sleep(5)
 
 # ==========================================================================================================================
 
@@ -92,11 +94,11 @@
 
 # from selenium import webdriver
 # from selenium.webdriver.common.by import By
-# # from time import sleep
+# from time import sleep
 # from selenium.webdriver.common.keys import Keys
 # from selenium.webdriver.support.select import Select
 
-# driver = webdriver.Firefox()
+# driver = webdriver.Chrome()
 # driver.get("https://the-internet.herokuapp.com/add_remove_elements/")
 # add_element = driver.find_element(by=By.CSS_SELECTOR, value='.example > button:nth-child(1)')
 
@@ -115,6 +117,8 @@
 # del_button = driver.find_elements(by=By.CSS_SELECTOR, value='button.added-manually')
 
 # assert len(del_button) == expected_result
+
+# sleep(10)
 
 # ==========================================================================================================================
 
@@ -448,3 +452,35 @@
 
 #=======================================================================================================================
 
+from time import sleep
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options
+import unittest
+
+class SiteTesting(unittest.TestCase):
+    
+    def setUp(self) -> None:
+        o = Options()
+        o.add_experimental_option("detach", True)
+        self.driver = webdriver.Chrome(options=o)
+        self.driver.get("https://www.nix.ru/")
+        
+    
+    def tearDown(self) -> None:
+        pass
+
+    def test_load(self):
+        current_url = self.driver.current_url
+        self.assertEqual(current_url, 'https://www.nix.ru/')
+
+
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
