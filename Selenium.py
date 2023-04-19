@@ -452,35 +452,51 @@
 
 #=======================================================================================================================
 
-from time import sleep
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.chrome.options import Options
-import unittest
+# from time import sleep
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.support.select import Select
+# from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.support import expected_conditions
+# from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.chrome.options import Options
+# import unittest
 
-class SiteTesting(unittest.TestCase):
+# class SiteTesting(unittest.TestCase):
     
-    def setUp(self) -> None:
-        o = Options()
-        o.add_experimental_option("detach", True)
-        self.driver = webdriver.Chrome(options=o)
-        self.driver.get("https://www.nix.ru/")
+#     def setUp(self) -> None:
+#         o = Options()
+#         o.add_experimental_option("detach", True)
+#         self.driver = webdriver.Chrome(options=o)
+#         self.driver.get("https://www.nix.ru/")
         
     
-    def tearDown(self) -> None:
-        pass
+#     def tearDown(self) -> None:
+#         pass
 
-    def test_load(self):
-        current_url = self.driver.current_url
-        self.assertEqual(current_url, 'https://www.nix.ru/')
-
-
+#     def test_load(self):
+#         current_url = self.driver.current_url
+#         self.assertEqual(current_url, 'https://www.nix.ru/')
 
 
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+# if __name__ == '__main__':
+#     unittest.main(verbosity=2)
+    
+#=====================================================================================================
+
+import requests
+from requests.exceptions import HTTPError
+ 
+for url in ['https://api.github.com', 'https://api.github.com/invalid']:
+    try:
+        response = requests.get(url)
+ 
+        # если ответ успешен, исключения задействованы не будут
+        response.raise_for_status()
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')  # Python 3.6
+    except Exception as err:
+        print(f'Other error occurred: {err}')  # Python 3.6
+    else:
+        print('Success!')
