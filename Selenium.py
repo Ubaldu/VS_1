@@ -452,16 +452,16 @@
 
 #=======================================================================================================================
 
-# from time import sleep
-# from selenium import webdriver
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.common.keys import Keys
-# from selenium.webdriver.support.select import Select
-# from selenium.webdriver.support.wait import WebDriverWait
-# from selenium.webdriver.support import expected_conditions
-# from selenium.webdriver.common.action_chains import ActionChains
-# from selenium.webdriver.chrome.options import Options
-# import unittest
+# # from time import sleep
+# # from selenium import webdriver
+# # from selenium.webdriver.common.by import By
+# # from selenium.webdriver.common.keys import Keys
+# # from selenium.webdriver.support.select import Select
+# # from selenium.webdriver.support.wait import WebDriverWait
+# # from selenium.webdriver.support import expected_conditions
+# # from selenium.webdriver.common.action_chains import ActionChains
+# # from selenium.webdriver.chrome.options import Options
+# # import unittest
 
 # class SiteTesting(unittest.TestCase):
     
@@ -480,82 +480,23 @@
 #         self.assertEqual(current_url, 'https://www.nix.ru/')
 
 
-
-
 # if __name__ == '__main__':
 #     unittest.main(verbosity=2)
-
-#==================================================================================================
-
-# import requests
-
-# data = {"user": "admin", "pass": "admin"}
-# response = requests.post("https://the-internet.herokuapp.com/basic_auth", auth= data)
-# print(response.status_code)
-
-# print (response.status_code)
-# print(response.text)
-# print(response.url)
-
-# import aiohttp
-# import asyncio
-
-# async def func():
-#     async with aiohttp.ClientSession() as session:
-#         query = {
-#             "user": "admin",
-#             "pass": "admin"
-#         }
-#         response = await session.get("https://the-internet.herokuapp.com/basic_auth", params=query)
-#         print(response.status)
-#         print(response.url)
-#         # print(await response.json())
-#         print(await response.text())
     
+#=====================================================================================================
 
-# loop = asyncio.new_event_loop()
-# loop.create_task(func())
-# loop.run_forever()
-
-
-# import requests
-# import unittest
-# from unittest import TestCase
-
-# class RestApiTest(TestCase):
-
-#     endpoint = 'https://api.nationalize.io'
-
-#     def test_get(self):
-#         query = {"name": "Александр"}
-#         response = requests.get(self.endpoint, params=query)
-
-#         self.assertEqual(response.status_code, 200)
+import requests
+from requests.exceptions import HTTPError
  
-#         print(response.json())
-
-# if __name__ == '__main__':
-#     unittest.main()
-
-
-
-# import requests
-# import unittest
-# from unittest import TestCase
-
-# class RestApiTest(TestCase):
-
-#     endpoint = 'https://restful-api.dev/objects/'
-
-#     def test_get(self):
-
-#         response = requests.get(self.endpoint)
-
-#         self.assertEqual(response.status_code, 200)
+for url in ['https://api.github.com', 'https://api.github.com/invalid']:
+    try:
+        response = requests.get(url)
  
-#         print(response.text)
-
-# if __name__ == '__main__':
-#     unittest.main()
-
-
+        # если ответ успешен, исключения задействованы не будут
+        response.raise_for_status()
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')  # Python 3.6
+    except Exception as err:
+        print(f'Other error occurred: {err}')  # Python 3.6
+    else:
+        print('Success!')

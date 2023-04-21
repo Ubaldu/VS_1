@@ -5358,3 +5358,5 @@ JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error:
 1681417483148	geckodriver	INFO	Listening on 127.0.0.1:52741
 1681417487002	geckodriver	INFO	Listening on 127.0.0.1:52751
 1681417490771	geckodriver	INFO	Listening on 127.0.0.1:52759
+1681810429065	geckodriver	INFO	Listening on 127.0.0.1:49487
+1681811678113	geckodriver	INFO	Listening on 127.0.0.1:50664
