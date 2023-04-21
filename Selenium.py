@@ -452,35 +452,110 @@
 
 #=======================================================================================================================
 
-from time import sleep
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.chrome.options import Options
-import unittest
+# from time import sleep
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.support.select import Select
+# from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.support import expected_conditions
+# from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.chrome.options import Options
+# import unittest
 
-class SiteTesting(unittest.TestCase):
+# class SiteTesting(unittest.TestCase):
     
-    def setUp(self) -> None:
-        o = Options()
-        o.add_experimental_option("detach", True)
-        self.driver = webdriver.Chrome(options=o)
-        self.driver.get("https://www.nix.ru/")
+#     def setUp(self) -> None:
+#         o = Options()
+#         o.add_experimental_option("detach", True)
+#         self.driver = webdriver.Chrome(options=o)
+#         self.driver.get("https://www.nix.ru/")
         
     
-    def tearDown(self) -> None:
-        pass
+#     def tearDown(self) -> None:
+#         pass
 
-    def test_load(self):
-        current_url = self.driver.current_url
-        self.assertEqual(current_url, 'https://www.nix.ru/')
-
-
+#     def test_load(self):
+#         current_url = self.driver.current_url
+#         self.assertEqual(current_url, 'https://www.nix.ru/')
 
 
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+
+
+# if __name__ == '__main__':
+#     unittest.main(verbosity=2)
+
+#==================================================================================================
+
+# import requests
+
+# data = {"user": "admin", "pass": "admin"}
+# response = requests.post("https://the-internet.herokuapp.com/basic_auth", auth= data)
+# print(response.status_code)
+
+# print (response.status_code)
+# print(response.text)
+# print(response.url)
+
+# import aiohttp
+# import asyncio
+
+# async def func():
+#     async with aiohttp.ClientSession() as session:
+#         query = {
+#             "user": "admin",
+#             "pass": "admin"
+#         }
+#         response = await session.get("https://the-internet.herokuapp.com/basic_auth", params=query)
+#         print(response.status)
+#         print(response.url)
+#         # print(await response.json())
+#         print(await response.text())
+    
+
+# loop = asyncio.new_event_loop()
+# loop.create_task(func())
+# loop.run_forever()
+
+
+# import requests
+# import unittest
+# from unittest import TestCase
+
+# class RestApiTest(TestCase):
+
+#     endpoint = 'https://api.nationalize.io'
+
+#     def test_get(self):
+#         query = {"name": "Александр"}
+#         response = requests.get(self.endpoint, params=query)
+
+#         self.assertEqual(response.status_code, 200)
+ 
+#         print(response.json())
+
+# if __name__ == '__main__':
+#     unittest.main()
+
+
+
+# import requests
+# import unittest
+# from unittest import TestCase
+
+# class RestApiTest(TestCase):
+
+#     endpoint = 'https://restful-api.dev/objects/'
+
+#     def test_get(self):
+
+#         response = requests.get(self.endpoint)
+
+#         self.assertEqual(response.status_code, 200)
+ 
+#         print(response.text)
+
+# if __name__ == '__main__':
+#     unittest.main()
+
+
